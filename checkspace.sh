@@ -1,10 +1,15 @@
 #!/bin/sh
 
+if [ "$(id -u)" -ne 0 ]; then
+    echo "You must be root to do this." 1>&2
+    exit 1
+fi
+
 usedspace=$(df -h --total | grep -i total | cut -d "G" -f 4 | cut -d "%" -f 1)
 
 echo "The used space on the disk is:$usedspace%"
 
-if [ $usedspace -gt 60 ]; then
+if [ $usedspace -gt 90 ]; then
         echo "Do you want to clean the cache now? Y/n"
         read choice
 
