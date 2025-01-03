@@ -27,7 +27,7 @@ if [ $usedspaceondisk -gt 90 ]; then
                 exit 1
         fi
 
-        echo "Do you want to remove files in the /tmp folder?"
+        echo "Do you want to remove files in the /tmp folder? Y/n"
         read choice
 
         if [ "$choice" = "Y" ] || [ "$choice" = "y" ]; then
